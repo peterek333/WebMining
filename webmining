@@ -27,6 +27,7 @@ Założenia:
 
 
 Kolejność pracy:
+0. Założyć konta do API wykop/twitter
 1. Skonfigurować dockery (proste pobranie strony Pythonem)
 
 
