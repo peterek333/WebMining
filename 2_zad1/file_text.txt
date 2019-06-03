@@ -1,0 +1,326 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Dr in¿. Piotr Duch</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250" />
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<!-- Custom Theme files -->
+<link href="css/style.css" rel='stylesheet' type='text/css' />
+<link href='//fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700' rel='stylesheet' type='text/css'>
+<!----font-Awesome----->
+<link href="css/font-awesome.css" rel="stylesheet"> 
+<!----font-Awesome----->
+
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+});
+</script>
+
+</head>
+
+<body>
+
+<div class="container">
+	<div class="col-sm-10 col-sm-offset-1">
+		<div id="header">
+			<table cellspacing="0" cellpadding="0">
+			<tr><td style="background-image:url(header.png);" width="1024px" height="100px">
+				<table cellspacing="0" cellpadding="0"><tr><td>
+					<a href="http://www.kis.p.lodz.pl">
+						<img alt="KIS" src="iis.png" style="margin-left: 5px; margin-right: 5px; margin-bottom: 0px"/>
+					</a>
+				</td><td style="vertical-align: bottom;">
+					<a href="index.html" style="font-size: 24px; color: white">Piotr Duch</a>
+					<br/>
+					<a href="mailto:pduch@iis.p.lodz.pl" style="font-size: 16px; color: white">pduch@kis.p.lodz.pl</a>
+				</td></tr></table>
+			</td></tr></table>	
+		</div>
+	</div>
+	
+	<div class="clearfix col-sm-10 col-sm-offset-1" >
+	
+		<div class="header">
+			<p>Kontakt</p>
+		</div>
+		
+		<div class="content">
+			<p> <a href="http://www.kis.p.lodz.pl/staff.130.html"> Dr in¿. <b>Piotr Duch</b></a>.</p>
+			<p> e-mail:  <a href="mailto:pduch@kis.p.lodz.pl">pduch@kis.p.lodz.pl</a> </p>
+			<p> telefon: (+48) 42 631 27 56</p>
+			<p> Godziny przyjêæ w trakcie sesji: poniedzia³ek, godz: 11-12 - <a href="http://www.p.lodz.pl/pol/mapa/index.jsp">budynek C7</a> (wejcie przez "stary KIS").</p>
+			<p> Terminy egzaminów z Lingwistyki Matematycznej:</p>
+			<ul>				
+				<li>sobota - 02.02.2019 - godz: 12:15 - 14 - sala E2</li>
+				<li>sobota - 09.02.2019 - godz: 12:15 - 14 - sala E2</li>						
+				<li>sobota - 23.02.2019 - godz: 12:15 - 14 - sala E2</li>						
+			</ul>
+			<p> Terminy poprawy kolokwium z PP1 i PP2:</p>
+			<ul>				
+				<li>wtorek - 29.01.2019 - godz: 11:15 - 15 - sala 404, CTI</li>
+				<li>wtorek - 05.02.2019 - godz: 11:15 - 15 - sala 404, CTI</li>						
+				<li>wtorek - 19.02.2019 - godz: 11:15 - 15 - sala 404, CTI</li>						
+			</ul>			
+		</div>
+
+	</div>
+
+	<div id="main" class="clearfix col-sm-10 col-sm-offset-1" >
+	
+		<div class="header">
+			<p>Dydaktyka</p>
+		</div>
+	
+		<div id="main" class="clearfix col-sm-5 " >
+	
+			<div class="content">
+			
+				<p class="title"> Zajêcia </p>
+			
+					<p class=""> Zajêcia prowadzone w semestrze zimowym roku akademickiego 2018/2019:</p>
+					<ul>				
+						<li><a href="http:\\pp.iis.p.lodz.pl">Podstawy Programowania 1.</li>
+						<li><a href="arduino.html">Programowanie Arduino.</li>						
+						<li><a href="SMPD.html">Statystyczne Metody Przetwarzania Danych.</a></li>						
+						<li><a href="PZ.html">Projekt Zespo³owy.</a></li>
+					</ul>
+			
+				<p class="line col-sm-5 col-md-7"> </p>
+			
+				<p class="title"> Prace dyplomowe </p>
+			
+				<p class=""> <a href="TematyPrac.html">Propozycje tematów prac dyplomowych - in¿ynierskich i magisterskich.</a></p>
+			
+				<p class="line col-sm-5 col-md-7"> </p>
+				
+			</div>
+		</div>
+
+	
+		<div id="main" class="clearfix col-sm-7 " >	
+			<div class="content">
+				<p class="title"> Plan zajêæ </p>
+			</div>
+	
+			<div class="list">
+		       <div class="tab_plan" role="tabpanel" >
+				<ul id="myTab" class="nav nav-tabs nav-tabs1" role="tablist">
+				  <li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">Poniedzia³ek</a></li>
+				  <li role="presentation"><a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile">Wtorek</a></li>
+				  <li role="presentation"><a href="#profile1" role="tab" id="profile-tab1" data-toggle="tab" aria-controls="profile1">roda</a></li>
+				  <li role="presentation"><a href="#profile2" role="tab" id="profile-tab2" data-toggle="tab" aria-controls="profile2">Czwartek</a></li>
+				  <li role="presentation"><a href="#profile3" role="tab" id="profile-tab3" data-toggle="tab" aria-controls="profile3">Pi¹tek</a></li>
+				  <li role="presentation"><a href="#profile4" role="tab" id="profile-tab4" data-toggle="tab" aria-controls="profile4">Sobota</a></li>
+				  <li role="presentation"><a href="#profile5" role="tab" id="profile-tab5" data-toggle="tab" aria-controls="profile5">Niedziela</a></li>
+				  
+				</ul>
+			<div id="myTabContent" class="tab-content">
+			
+			  <div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
+				<div class="clearfix"></div>
+			  </div>
+
+			  <div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="profile-tab">
+				<div class="clearfix"></div>				
+			  </div>
+
+			  
+			  <div role="tabpanel" class="tab-pane fade" id="profile1" aria-labelledby="profile-tab1">
+				<div class="clearfix"></div>								
+			  </div>
+			
+			  <div role="tabpanel" class="tab-pane fade" id="profile2" aria-labelledby="profile-tab2">
+				<div class="classes_box">
+					<div class="classes_hours">
+						<div class="classes_hours-item">
+							<div class="icon_2"><i class="fa fa-clock-o"></i>12:15 - 14:00</div>
+							<div class="icon_2"><i class="fa fa-location-arrow"></i>Sala CTI 404</div>
+			    		</div>
+			    	</div>
+			    	<div class="classes_details">
+			    		  <h3><a href="http:\\pp.iis.p.lodz.pl">Podstawy Programowania 1</a></h3>
+						  <p>Laboratorium - grupa 1I03. </p>
+		    	    </div>
+		    	    <div class="clearfix"></div>
+				</div>	
+			  </div>
+
+			  <div role="tabpanel" class="tab-pane fade" id="profile3" aria-labelledby="profile-tab3">
+
+				<div class="classes_box">
+					<div class="classes_hours">
+						<div class="classes_hours-item">
+							<div class="icon_2"><i class="fa fa-clock-o"></i>8:15 - 10:00</div>
+							<div class="icon_2"><i class="fa fa-location-arrow"></i>Sala CTI 403</div>
+			    		</div>
+			    	</div>
+			    	<div class="classes_details">
+			    		  <h3>Zaawansowane Programowanie Obiektowe</a></h3>
+						  <p>Laboratorium - grupa 5IO4. </p>
+		    	    </div>
+		    	    <div class="clearfix"></div>
+				</div>
+				
+				<div class="classes_box">
+					<div class="classes_hours">
+						<div class="classes_hours-item">
+							<div class="icon_2"><i class="fa fa-clock-o"></i>10:15 - 12:00</div>
+							<div class="icon_2"><i class="fa fa-location-arrow"></i>Sala CTI 406</div>
+			    		</div>
+			    	</div>
+			    	<div class="classes_details">
+			    		  <h3><a href="SMPD.html">Statystyczne Metody Przetwarzania Danych</a></h3>
+						  <p>Laboratorium - grupa 1I s2 AdPJEE, tygodnie 9 - 15. </p>
+		    	    </div>
+		    	    <div class="clearfix"></div>
+				</div>
+				
+				<div class="classes_box">
+					<div class="classes_hours">
+						<div class="classes_hours-item">
+							<div class="icon_2"><i class="fa fa-clock-o"></i>16:15 - 18:00</div>
+							<div class="icon_2"><i class="fa fa-location-arrow"></i>Sala CTI 405</div>
+			    		</div>
+			    	</div>
+			    	<div class="classes_details">
+			    		  <h3><a href="http:\\pp.iis.p.lodz.pl">Podstawy Programowania 1</a></h3>
+						  <p>Laboratorium - grupa 1I12. </p>
+		    	    </div>
+		    	    <div class="clearfix"></div>
+				</div>	
+		
+				<div class="classes_box">
+					<div class="classes_hours">
+						<div class="classes_hours-item">
+							<div class="icon_2"><i class="fa fa-clock-o"></i>18:15 - 20:00</div>
+							<div class="icon_2"><i class="fa fa-location-arrow"></i>Sala CTI 406</div>
+			    		</div>
+			    	</div>
+			    	<div class="classes_details">
+			    		  <h3><a href="SMPD.html">Statystyczne Metody Przetwarzania Danych</a></h3>
+						  <p>Laboratorium - grupa 1I s2 ISBD, tygodnie x2. </p>
+		    	    </div>
+		    	    <div class="clearfix"></div>
+				</div>
+
+				<div class="classes_box">
+					<div class="classes_hours">
+						<div class="classes_hours-item">
+							<div class="icon_2"><i class="fa fa-clock-o"></i>18:15 - 20:00</div>
+							<div class="icon_2"><i class="fa fa-location-arrow"></i>Sala CTI 406</div>
+			    		</div>
+			    	</div>
+			    	<div class="classes_details">
+			    		  <h3><a href="SMPD.html">Statystyczne Metody Przetwarzania Danych</a></h3>
+						  <p>Laboratorium - grupa 1I s2 KSK, tygodnie x1. </p>
+		    	    </div>
+		    	    <div class="clearfix"></div>
+				</div>
+			
+				
+				</div>
+
+			 <div role="tabpanel" class="tab-pane fade" id="profile4" aria-labelledby="profile-tab4">   
+					<div class="classes_box">
+			    	<div class="classes_hours">
+						<div class="classes_hours-item">
+							<div class="icon_2"><i class="fa fa-clock-o"></i>11:15 - 13:00</div>
+							<div class="icon_2"><i class="fa fa-location-arrow"></i>Sala B9 416 I-16</div>
+			    		</div>
+			    	</div>
+			    	<div class="classes_details">
+						  <h3><a href="LM.html">Lingwistyka Matematyczna</a></h3>
+						  <p>Wyk³ad - grupa nz2 1D00, zjazdy <a href="#" data-toggle="tooltip" title="6.10.2018, 13.10.2018, 27.10.2018, 3.11.2018, 17.11.2018">1 - 5</a>. </p>
+		    	    </div>
+		    	    <div class="clearfix"></div>
+					</div>
+					
+					<div class="classes_box">
+			    	<div class="classes_hours">
+						<div class="classes_hours-item">
+							<div class="icon_2"><i class="fa fa-clock-o"></i>15:15 - 17:00</div>
+							<div class="icon_2"><i class="fa fa-location-arrow"></i>Sala CTI 407</div>
+			    		</div>
+			    	</div>
+			    	<div class="classes_details">
+			    		  <h3><a href="SMPD.html">Statystyczne Metody Przetwarzania Danych</a></h3>
+						  <p>Laboratorium - grupa nz2 1D60 SRiPM, zjazdy <a href="#" data-toggle="tooltip" title="24.11.2018, 8.12.2018, 15.12.2018, 12.01.2019, 19.01.2019">6 - 10</a>. </p>
+		    	    </div>
+		    	    <div class="clearfix"></div>
+					</div>
+					
+					<div class="classes_box">
+			    	<div class="classes_hours">
+						<div class="classes_hours-item">
+							<div class="icon_2"><i class="fa fa-clock-o"></i>15:15 - 17:00</div>
+							<div class="icon_2"><i class="fa fa-location-arrow"></i>Sala CTI 407</div>
+			    		</div>
+			    	</div>
+			    	<div class="classes_details">
+			    		  <h3><a href="SMPD.html">Statystyczne Metody Przetwarzania Danych</a></h3>
+						  <p>Laboratorium - grupa nz2 1D20 ISBD, zjazdy <a href="#" data-toggle="tooltip" title="6.10.2018, 13.10.2018, 27.10.2018, 3.11.2018, 17.11.2018">1 - 5</a>. </p>
+		    	    </div>
+		    	    <div class="clearfix"></div>
+					</div>
+
+					
+					<div class="clearfix"></div>			   				
+			  </div>
+		
+
+			 <div role="tabpanel" class="tab-pane fade" id="profile5" aria-labelledby="profile-tab5">   
+					
+				<div class="classes_box">
+			    	<div class="classes_hours">
+						<div class="classes_hours-item">
+							<div class="icon_2"><i class="fa fa-clock-o"></i>10:15 - 12:00</div>
+							<div class="icon_2"><i class="fa fa-location-arrow"></i>Sala CTI 407</div>
+			    		</div> 
+			    	</div>
+			    	<div class="classes_details">
+			    		  <h3><a href="SMPD.html">Statystyczne Metody Przetwarzania Danych</a></h3>
+						  <p>Laboratorium - grupa nz2 JAVA, zjazdy <a href="#" data-toggle="tooltip" title="7.10.2018, 14.10.2018, 28.10.2018, 4.11.2018, 18.11.2018">1 - 5</a>. </p>
+		    	    </div>
+		    	    <div class="clearfix"></div>
+				</div>
+					<div class="clearfix"></div>			   				
+			  </div>
+
+
+
+
+				
+		     </div>
+		    </div>
+		   </div>
+			<div class="clearfix"></div>
+
+
+	</div>
+	
+	
+		
+
+
+	 </div>
+	
+<!--
+	<div id="footer" style="width: 1024px; margin-top: 300px;" class="col-sm-10 col-sm-offset-1">
+		<table cellspacing="0" cellpadding="0"><tr><td>
+			<a href="http://validator.w3.org/check?uri=referer">
+				<img src="http://www.w3.org/Icons/valid-xhtml10-blue" alt="Valid XHTML 1.0 Transitional" height="20" width="57" />
+			</a>
+		</td><td style="text-align: right;" width="1000px">
+			<a href="http://www.wee.p.lodz.pl"><img src="weeiia.png" alt="Wydzia³ Elektrotechniki, Elektroniki Informatyki i Automatyki" height="32" /></a>
+			<a href="http://www.p.lodz.pl"><img src="pl.gif" alt="Politechnika £ódzka" height="32" /></a>
+		</td></tr></table>
+	</div>
+	-->
+</div>
+</body>
+</html>
