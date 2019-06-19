@@ -130,8 +130,10 @@ def mockSubscribedData():
     subscribeCallback('', '', '', json.dumps({
         'keyword': 'word2', 'username': 'user1'
     }))
+    print("\n\n")
     for k, v in subscribedWordsDict.iteritems():
         print(k, v)
+    print("\n\n")
 
 
 def initDatabaseData():
