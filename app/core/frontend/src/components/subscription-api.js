@@ -5,8 +5,12 @@ const AXIOS = axios.create({
 });
 
 export default {
-    subscribeKeyword(keyword) {
-        return AXIOS.post(`${keyword}`);
+    subscribeKeyword(keyword, username) {
+        return AXIOS.post(`${keyword}`, null, {
+            params: {
+                username: username
+            }
+        });
     }
 }
 

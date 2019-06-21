@@ -38,11 +38,12 @@
                             <span class="badge badge-info">
                                 {{ scrapedPost.site }}
                             </span>
+                            <span class="badge badge-warning ml-1">
+                                {{ scrapedPost.keyword }}
+                            </span>
                             <span style="float: right;">
-                                <span class="font-italic">Keyword: </span>
-                                <span class="badge badge-warning">
-                                    {{ scrapedPost.keyword }}
-                                </span>
+                                <span class="font-italic">Posted: </span>
+                                <span class="small"> {{ scrapedPost.createdDatetime }}</span>
                             </span>
                         </div>
                         <div class="card-body">
@@ -52,7 +53,14 @@
                                 </div>
                                 <div class="col-2">
                                     <button @click="openNewWindow(scrapedPost.url)"
-                                            type="button" class="btn btn-info">Go to post</button>
+                                            type="button" class="btn btn-info">
+                                        <span v-if="scrapedPost.site === 'wykop'">
+                                            Go to post
+                                        </span>
+                                        <span v-if="scrapedPost.site === 'twitter'">
+                                            Go to profile
+                                        </span>
+                                    </button>
                                 </div>
                             </div>
                         </div>

@@ -9,6 +9,7 @@ import time
 from threading import Thread, Timer
 import random
 import re
+from datetime import datetime
 
 from pymongo import MongoClient
 
@@ -38,6 +39,7 @@ SCRAPED_POSTS_COLLECTION = 'scrapedPost'
 NOTIFICATIONS_COLLECTION = 'notifications'
 
 WYKOP_SCRAPING_INTERVAL = 15    #seconds
+TWITTER_SCRAPING_INTERVAL = 15
 
 debug = False
 logInfo = True
@@ -46,12 +48,7 @@ dbClient = 'global'
 collSubscribedWords = 'global'
 collScrapedPosts = 'global'
 collNotifications = 'global'
-
 subscribedWordsDict = {}
-rabbitMQConn = 'global'
-
-
-zmienna = 1
 
 
 def initDatabaseConnection():
@@ -98,7 +95,10 @@ def scrapWykop():
 def saveWykopElements(html, keyword):
     global debug, logInfo
     soup = BeautifulSoup(html, 'html.parser')
-    for li in soup.find(id='itemsStream').find_all('li'):
+    liElements = soup.find(id='itemsStream').find_all('li')
+    if liElements is None:
+        return
+    for li in liElements:
         wykopPostDiv = li.find('div').find('div', {'class': 'lcontrast'})
         wykopPostLink = wykopPostDiv.h2.a
         wykopPostDescription = wykopPostDiv.find('div', {'class': 'description'}).p.a.text
@@ -111,6 +111,7 @@ def saveWykopElements(html, keyword):
             print(scrapedPost.title)
             print(scrapedPost.url)
             print(scrapedPost.createdDatetime)
+            print(scrapedPost.description)
             print("\n")
 
 def addPostIfNotExists(scrapedPost, keyword):
@@ -123,7 +124,7 @@ def addPostIfNotExists(scrapedPost, keyword):
             print("\tNew post: " + scrapedPost.title + " ( DATETIME: " + scrapedPost.createdDatetime + ")")
 
 def createNotifications(keyword):
-    global rabbitMQConn
+    rabbitMQConn = pika.BlockingConnection(pika.ConnectionParameters('localhost'))
     channel = rabbitMQConn.channel()
     for subscribedWord, users in subscribedWordsDict.iteritems():
         if subscribedWord == keyword:
@@ -131,6 +132,7 @@ def createNotifications(keyword):
                 body = {'username': user, 'keyword': subscribedWord}
                 channel.basic_publish(exchange='', routing_key='notification', body=json.dumps(body))
     channel.close()
+    rabbitMQConn.close()
 
 
 def subscribeIfUniqe(keyword, username):
@@ -169,6 +171,48 @@ def startListeningToSubscriptions(connection):
     channel.start_consuming()
 
 
+def scrapTwitter():
+    global subscribedWordsDict, logInfo
+    if logInfo:
+        print("\nStarted scrap twitter.com")
+        print("Words set: " + str(subscribedWordsDict) + "\n")
+    for keyword, user in subscribedWordsDict.iteritems():
+        print("Searching for keyword = " + keyword)
+        url = 'https://twitter.com/search?f=tweets&vertical=default&q=' + keyword + '&src=typd'
+        html = getHtmlFromSite(url)
+        saveTwitterElements(html, keyword)
+
+
+def saveTwitterElements(html, keyword):
+    global debug, logInfo
+    soup = BeautifulSoup(html, 'html.parser')
+    liElements = soup.find(id='stream-items-id')
+    if liElements is None:
+        return
+    for li in liElements.find_all('li', {'class': 'js-stream-item'}):
+        twitterPostDiv = li.find('div', {'class': 'content'})
+        twitterPostDescription = twitterPostDiv.find('div', {'class': 'js-tweet-text-container'}).p.text
+        twitterPostDescription = BeautifulSoup(twitterPostDescription, 'html.parser').get_text()    #remove all html tags
+        twitterPostDescription = twitterPostDescription.replace('\n', ' ')
+        twitterPostHeader = twitterPostDiv.find('div', {'class': 'stream-item-header'})
+        tittleNick = twitterPostHeader.a.find('span', {'class': 'FullNameGroup'}).strong.text\
+            + ' | '\
+            + twitterPostHeader.a['href'].replace('/', '')
+        link = 'https://www.twitter.com' + twitterPostHeader.a['href']
+        dt = twitterPostDiv.find('div', {'class': 'stream-item-header'}).small.a.find('span', {'class': '_timestamp'})[
+            'data-time']
+        dt = datetime.utcfromtimestamp(int(dt)).strftime('%Y-%m-%dT%H:%M:%S%z')
+        scrapedPost = ScrapedPost(tittleNick, link, dt, 'twitter', keyword, twitterPostDescription)
+        addPostIfNotExists(scrapedPost, keyword)
+
+        if debug:
+            print(scrapedPost.title)
+            print(scrapedPost.url)
+            print(scrapedPost.createdDatetime)
+            print(scrapedPost.description)
+            print("\n")
+
+
 # main:
 initDatabaseConnection()
 initDatabaseData()
@@ -177,6 +221,7 @@ try:
     rabbitMQConn = pika.BlockingConnection(pika.ConnectionParameters('localhost'))
 
     startWebScraper(WYKOP_SCRAPING_INTERVAL, scrapWykop)
+    Timer(WYKOP_SCRAPING_INTERVAL/2, startWebScraper, [TWITTER_SCRAPING_INTERVAL, scrapTwitter]).start() #start in half time of wykop
 
     startListeningToSubscriptions(rabbitMQConn)
 except AMQPConnectionError:

@@ -18,11 +18,9 @@ public class SubscriptionService {
     private String subscriptionQueueName;
 
     private final SubscriptionQueueService subscriptionQueueService;
-    private final UserService userService;
     private final SubscribedWordService subscribedWordService;
 
-    public boolean subscribeKeyword(String keyword) {
-        String username = userService.getUsernameFromContext();
+    public boolean subscribeKeyword(String keyword, String username) {
         if (username != null) {
             SubscribedWord subscribedWord = SubscribedWord.builder()
                     .keyword(keyword)

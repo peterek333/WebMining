@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserService {
 
+    //doesnt work in this structure front-back
     public String getUsernameFromContext() {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         if (principal != null) {

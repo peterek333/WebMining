@@ -12,6 +12,7 @@
 
 <script>
     import subscriptionApi from "./subscription-api";
+    import store from '../store'
 
     export default {
         name: "Subscription",
@@ -24,7 +25,7 @@
         },
         methods: {
             subscribeKeyword() {
-                subscriptionApi.subscribeKeyword(this.keyword).then(response => {
+                subscriptionApi.subscribeKeyword(this.keyword, store.getters.username).then(response => {
                     this.error = false;
                     this.success = response.data;
                     console.log('success');
