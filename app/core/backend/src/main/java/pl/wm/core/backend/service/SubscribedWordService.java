@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import pl.wm.core.backend.domain.SubscribedWord;
 import pl.wm.core.backend.repository.SubscribedWordRepository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -18,6 +19,10 @@ public class SubscribedWordService {
                 .findFirstByKeywordAndUsername(subscribedWord.getKeyword(), subscribedWord.getUsername());
 
         return subscribedWordOptional.orElseGet(() -> subscribedWordRepository.save(subscribedWord));
+    }
+
+    public List<SubscribedWord> getSubscribedWords(String username) {
+        return subscribedWordRepository.findAllByUsername(username);
     }
 
 }

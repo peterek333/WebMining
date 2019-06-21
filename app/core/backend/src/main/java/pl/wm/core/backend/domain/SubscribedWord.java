@@ -6,7 +6,7 @@ import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Builder
+@Builder //simple but not good solution because may suggest that fields are optional
 @Getter
 @Setter
 //@Document(collection = "subscribedWord")

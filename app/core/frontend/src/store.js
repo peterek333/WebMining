@@ -31,14 +31,14 @@ export default new Vuex.Store({
                         if(response.status == 200) {
                             console.log("Login successful");
                             // place the loginSuccess state into our vuex store
-                            commit('login_success', name);
+                            commit('login_success', user);
                         }
                         resolve(response)
                     })
                     .catch(error => {
                         console.log("Error: " + error);
                         // place the loginError state into our vuex store
-                        commit('login_error', name);
+                        commit('login_error', user);
                         reject("Invalid credentials!")
                     })
             })
@@ -46,6 +46,7 @@ export default new Vuex.Store({
     },
     getters: {
         isLoggedIn: state => state.loginSuccess,
-        hasLoginErrored: state => state.loginError
+        hasLoginErrored: state => state.loginError,
+        username: state => state.userName
     }
 })

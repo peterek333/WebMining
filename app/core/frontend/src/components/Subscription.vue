@@ -2,7 +2,7 @@
     <div>
         <form @submit.prevent="subscribeKeyword()">
             <input type="text" placeholder="keyword" v-model="keyword">
-            <b-btn variant="success" type="submit">Login</b-btn>
+            <b-btn class="ml-1" variant="success" type="submit">Subscribe</b-btn>
             <p v-if="success" class="alert-success">Successful subscribed <span style="font-weight: bold;">{{ keyword }}</span></p>
             <p v-if="error" class="error">Problem with server</p>
         </form>

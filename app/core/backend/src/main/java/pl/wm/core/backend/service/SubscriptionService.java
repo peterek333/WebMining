@@ -2,6 +2,8 @@ package pl.wm.core.backend.service;
 
 import com.google.gson.Gson;
 import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import pl.wm.core.backend.domain.SubscribedWord;
@@ -9,6 +11,8 @@ import pl.wm.core.backend.domain.SubscribedWord;
 @Service
 @RequiredArgsConstructor
 public class SubscriptionService {
+
+    private static final Logger LOG = LoggerFactory.getLogger(SubscriptionService.class);
 
     @Value("${queue.name.subscription}")
     private String subscriptionQueueName;
@@ -27,6 +31,8 @@ public class SubscriptionService {
 
             subscribedWord = subscribedWordService.addUniqueSubscribedWord(subscribedWord);
             String serializedData = new Gson().toJson(subscribedWord);
+
+            LOG.info("Subscriberd word: keyword = " + keyword + " for user = " + username);
             return subscriptionQueueService.sendToQueue(subscriptionQueueName, serializedData);
         }
 

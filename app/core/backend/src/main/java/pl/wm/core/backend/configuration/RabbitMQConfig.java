@@ -12,8 +12,16 @@ public class RabbitMQConfig {
     @Value("${queue.name.subscription}")
     private String subscriptionQueueName;
 
+    @Value("${queue.name.notification}")
+    private String notificationQueueName;
+
+    @Bean
+    public Queue subscription() {
+        return new Queue(subscriptionQueueName);
+    }
+
     @Bean
     public Queue notification() {
-        return new Queue(subscriptionQueueName);
+        return new Queue(notificationQueueName);
     }
 }
